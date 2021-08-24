@@ -6,9 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clock/constants.dart';
 import '../../time_in_hour_and_minute.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,6 +25,7 @@ class Body extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyText1,
           ),
           TimeInHourAndMinute(),
+          ThemeToggle(),
           Clock(),
         ],
       ),
@@ -64,7 +70,7 @@ class _ClockState extends State<Clock> {
                 )
               ]),
           child: Transform.rotate(
-            angle: -pi/2,
+            angle: -pi / 2,
             child: CustomPaint(
               painter: ClockPainter(context, _dateTime),
             ),
@@ -135,5 +141,30 @@ class ClockPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
+  }
+}
+
+class ThemeToggle extends StatefulWidget {
+  const ThemeToggle({Key? key}) : super(key: key);
+
+  @override
+  _ThemeToggleState createState() => _ThemeToggleState();
+}
+
+class _ThemeToggleState extends State<ThemeToggle> {
+  bool isDark = false;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.all(8.0),
+        child: IconButton(
+          icon: isDark == true ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
+          onPressed: () {
+            print('Theme toggled $isDark');
+            setState(() {
+              isDark = !isDark;
+            });
+          },
+        ));
   }
 }

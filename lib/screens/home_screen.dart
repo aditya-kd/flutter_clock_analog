@@ -21,43 +21,7 @@ class HomeScreen extends StatelessWidget {
         ),
         onPressed: () {},
       ),
-      actions: [
-        Padding(
-          padding: EdgeInsets.all(0.2),
-          child: InkWell(
-            onTap: () {},
-            child: Container(
-              width: 15,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        )
-      ],
+     
     );
   }
 }
-//   Padding buildAddButton(BuildContext context) {
-//     return Padding(padding: EdgeInsets.symmetric(
-//           horizontal: getProportionateScreenWidth(10),        
-//         ),
-//         child: InkWell(
-//           onTap: (){},
-//           child: Container(
-//             width: getProportionateScreenHeight(32),
-//             decoration: BoxDecoration(
-//               color: Theme.of(context).primaryColor,
-//               shape: BoxShape.circle,
-//             ),
-//             child: Icon(Icons.add, color: Colors.white,),
-//           ),
-//         ),
-//         );
-//   }
-// }
